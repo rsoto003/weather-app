@@ -3,24 +3,11 @@ import React, { Component } from 'react';
 class Form extends Component {
     render(){
         return (
-            <div class="row">
-            <div class="col s12">
-              <div class="row">
-                <div class="input-field col s3">
-                  <i class="material-icons prefix">textsms</i>
-                  <input type="text" id="autocomplete-input" class="autocomplete" />
-                  <label for="autocomplete-input">City</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s3">
-                  <i class="material-icons prefix">textsms</i>
-                  <input type="text" id="autocomplete-input" class="autocomplete" />
-                  <label for="autocomplete-input">Country</label>
-                </div>
-              </div>
-            </div>
-          </div>
+          <form onSubmit={this.props.getWeather}>
+            <input type="text" name="city" placeholder="City"/>
+            <input type="text" name="country" placeholder="Country"/>
+            <button class="waves-effect  purple accent-2 waves-light btn-large">Get Weather!</button>
+          </form>
         );
     }
 }
