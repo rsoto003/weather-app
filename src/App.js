@@ -17,14 +17,19 @@ class App extends Component {
 
   getWeather = async (e) => {
     e.preventDefault();
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Manchester,uk&APPID=${API_KEY}&units=metric`);
+    //can use event object to use name attributes in Form.js in App.js
+
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
     const data = await api_call.json();
     console.log(data);
     
   }
   render(){
     return (
-      <div>
+      <div className="center">
         <Titles />
         <Form getWeather={this.getWeather}/>
         <Weather />
