@@ -14,7 +14,10 @@ class App extends Component {
       //so the Form component will have access to the props in the Form.js file.
     //In form component, I am setting up a prop, and setting up it's value to this function
     //Since I am setting this up in the form component, that means I have access to this function in the Form.js file.
-
+  alertResults = (e) => {
+    e.preventDefault();
+    console.log('getting results...')
+  }
   getWeather = async (e) => {
     e.preventDefault();
     //can use event object to use name attributes in Form.js in App.js
@@ -29,10 +32,10 @@ class App extends Component {
   }
   render(){
     return (
-      <div className="center">
+      <div className="center white-text grey darken-4">
         <Titles />
-        <Form getWeather={this.getWeather}/>
-        <Weather />
+        <Form getWeather={this.getWeather} alertResults={this.alertResults}/>
+        <Weather/>
       </div>
     );
   }
