@@ -3,18 +3,21 @@ import React, { Component } from 'react';
 class Weather extends Component {
 
 //How to get weather information to only show when button is clicked?
-//
+//Using conditional operators 
     render(){
         return (
              <div className="row">
                 <div className="col s6 push-s3">
-                  <div className="card grey darken-4">
-                    <div className="card-content white-text">
+                  <div className="grey darken-4">
+                    <div className="white-text">
+                    { !this.props.error && this.props.city && this.props.country && <p className="card-panel green white-text darken-1" >Weather Data:</p>}
+
                     {this.props.city && this.props.country && <span className="card-title">Weather Details:</span>}
                         { this.props.city && this.props.country && <p>City: {this.props.city}, {this.props.country}</p>}
                         { this.props.temperature &&  <p>Temperature: {this.props.temperature}</p>}
                         { this.props.humidity && <p>Humidity: {this.props.humidity}</p>}
                         { this.props.description && <p>Conditions: {this.props.description}</p>}
+                        { this.props.error && <p className="card-panel red white-text darken-1" > {this.props.error}</p>}
                     </div>
                   </div>
                 </div>

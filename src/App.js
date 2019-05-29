@@ -39,14 +39,26 @@ class App extends Component {
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
     const data = await api_call.json();
     console.log(data);
-    this.setState({
-      temperature: data.main.temp,
-      city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.weather[0].description,
-    });
-    console.log(this.state)
+    if(city && country){
+      this.setState({
+        temperature: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ''
+      });
+      console.log(data);
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: 'Please fill out the form to get your weather data.'
+      });
+    }
   }
   //define props in components to have access to the props in their component file
   render(){
