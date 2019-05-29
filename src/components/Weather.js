@@ -13,11 +13,11 @@ class Weather extends Component {
                     { !this.props.error && this.props.city && this.props.country && <p className="card-panel green white-text darken-1" >Weather Data:</p>}
 
                     {this.props.city && this.props.country && <span className="card-title">Weather Details:</span>}
-                        { this.props.city && this.props.country && <p>City: {this.props.city}, {this.props.country}</p>}
-                        { this.props.temperature &&  <p>Temperature: {this.props.temperature}</p>}
-                        { this.props.humidity && <p>Humidity: {this.props.humidity}</p>}
-                        { this.props.description && <p>Conditions: {this.props.description}</p>}
-                        { this.props.error && <p className="card-panel red white-text darken-1" > {this.props.error}</p>}
+                        { this.props.city && this.props.country && <p><i className="fas fa-thumbtack"></i> City: {this.props.city}, {this.props.country}</p>}
+                        { this.props.temperature &&  <p><i className="fas fa-thermometer-three-quarters"></i> Temperature: {this.props.temperature}</p>}
+                        { this.props.humidity && <p><i className="fas fa-temperature-high"></i> Humidity: {this.props.humidity}</p>}
+                        { this.props.description && <p><i className="far fa-clipboard"></i> Conditions: {this.props.description}</p>}
+                        { this.props.error && <p className="card-panel red white-text darken-5"><i className="fas fa-exclamation-triangle"></i>  Error: {this.props.error}</p>}
                     </div>
                   </div>
                 </div>

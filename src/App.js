@@ -38,7 +38,6 @@ class App extends Component {
 
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
     const data = await api_call.json();
-    console.log(data);
     if(city && country){
       this.setState({
         temperature: data.main.temp,
@@ -48,7 +47,6 @@ class App extends Component {
         description: data.weather[0].description,
         error: ''
       });
-      console.log(data);
     } else {
       this.setState({
         temperature: undefined,
@@ -64,7 +62,10 @@ class App extends Component {
   render(){
     return (
       <div className="center white-text grey darken-4">
-        <Titles />
+        <Titles 
+          city={this.state.city}
+          country={this.state.country}
+          />
         <Form getWeather={this.getWeather}/>
         <Weather
           temperature={this.state.temperature}
