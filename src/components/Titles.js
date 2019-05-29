@@ -4,8 +4,7 @@ class Titles extends Component {
     render(){
         return (
             <div>
-                <h1>Weather</h1>
-                <p>What's the weather like today?</p>
+                <h2>Weather</h2>
             </div>
         )
     }
